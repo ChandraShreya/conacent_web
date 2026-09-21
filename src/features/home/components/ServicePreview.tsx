@@ -107,7 +107,7 @@ export default function ServicePreview() {
                   hover:shadow-[0_15px_45px_rgba(37,99,235,0.15)]
                 "
               >
-                {/* Decorative background circle - top right */}
+                {/*  circle - top right */}
                 <div
                   className="
                     pointer-events-none
@@ -126,7 +126,7 @@ export default function ServicePreview() {
                   "
                 />
 
-                {/* Second decorative circle */}
+                {/* Second  circle */}
                 <div
                   className="
                     pointer-events-none

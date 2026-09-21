@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -130,313 +130,267 @@ export default function Header() {
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="
-  flex
-  h-11
-  w-11
-  items-center
-  justify-center
-  rounded-full
-  text-text-primary
-  transition-colors
-  duration-200
-  hover:bg-black/5
-  min-[990px]:hidden
-"
-            aria-label="Toggle menu"
+    flex
+    h-11
+    w-11
+    items-center
+    justify-center
+    rounded-full
+    text-text-primary
+    transition-colors
+    duration-200
+    hover:bg-black/5
+    min-[990px]:hidden
+  "
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="h-7 w-7"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <X className="h-7 w-7" strokeWidth={2} />
             ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="h-6 w-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h-16"
-                />
-              </svg>
+              <Menu className="h-7 w-7" strokeWidth={2} />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <>
-          {/* Backdrop */}
-          <div
-            className="
-        fixed
-        inset-0
-        z-40
-        bg-black/40
-        backdrop-blur-[2px]
-        min-[990px]:hidden
-      "
-            onClick={() => setIsMenuOpen(false)}
+      {/* Mobile Backdrop */}
+      <div
+        className={`
+    fixed
+    inset-0
+    z-40
+    bg-black/40
+    backdrop-blur-[2px]
+    transition-opacity
+    duration-300
+    min-[990px]:hidden
+    ${isMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+          }
+  `}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Mobile Sidebar */}
+      <div
+        className={`
+    fixed
+    right-0
+    top-0
+    z-50
+    flex
+    h-dvh
+    w-[85%]
+    max-w-[380px]
+    flex-col
+    overflow-y-auto
+    bg-nav-background
+    shadow-2xl
+    transition-transform
+    duration-300
+    ease-out
+    min-[990px]:hidden
+    ${isMenuOpen
+            ? "translate-x-0"
+            : "translate-x-full"
+          }
+  `}
+      >
+        {/* Sidebar Header */}
+        <div
+          className="
+      flex
+      h-20
+      shrink-0
+      items-center
+      justify-between
+      border-b
+      border-black/10
+      px-5
+    "
+        >
+          {/* Logo */}
+          <Image
+            src="/images/logo/logo.png"
+            alt="logo"
+            width={150}
+            height={60}
+            className="h-auto w-[135px]"
           />
 
-          {/* Sidebar */}
-          <div
+          {/* Close */}
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(false)}
             className="
-        fixed
-        right-0
-        top-0
-        z-50
         flex
-        h-dvh
-        w-[85%]
-        max-w-[380px]
-        flex-col
-        overflow-y-auto
-        bg-nav-background
-        shadow-2xl
-        min-[990px]:hidden
+        h-11
+        w-11
+        items-center
+        justify-center
+        rounded-full
+        text-text-primary
+        transition-colors
+        duration-200
+        hover:bg-black/5
       "
+            aria-label="Close menu"
           >
+            <X className="h-7 w-7" strokeWidth={2} />
+          </button>
+        </div>
 
-            {/* Sidebar Header */}
-            <div
+        {/* Navigation */}
+        <nav className="flex flex-1 flex-col px-5 py-4">
+
+          {navLinks.slice(0, 4).map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
               className="
-          flex
-          h-20
-          shrink-0
-          items-center
-          justify-between
           border-b
           border-black/10
-          px-5
+          py-5
+          text-base
+          font-medium
+          text-text-primary
+          transition-colors
+          duration-200
+          hover:text-text-nav
         "
             >
+              {link.name}
+            </Link>
+          ))}
 
-              {/* Logo */}
-              <Image
-                src="/images/logo/logo.png"
-                alt="logo"
-                width={150}
-                height={60}
-                className="h-auto w-[135px]"
-              />
+          {/* Solutions */}
+          <div className="border-b border-black/10">
 
-              {/* Close */}
-              <button
-                type="button"
-                onClick={() => setIsMenuOpen(false)}
-                className="
-            flex
-            h-11
-            w-11
-            items-center
-            justify-center
-            rounded-full
-            text-text-primary
-            transition-colors
-            duration-200
-            hover:bg-black/5
-          "
-                aria-label="Close menu"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="h-7 w-7"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+            <button
+              type="button"
+              onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+              className="
+          flex
+          w-full
+          items-center
+          justify-between
+          py-5
+          text-base
+          font-medium
+          text-text-primary
+        "
+            >
+              <span>Solutions</span>
 
-            </div>
-
-
-            {/* Navigation */}
-            <nav className="flex flex-1 flex-col px-5 py-4">
-
-              {/* First Links */}
-              {navLinks.slice(0, 4).map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="
-              border-b
-              border-black/10
-              py-5
-              text-base
-              font-medium
-              text-text-primary
-              transition-colors
-              duration-200
-              hover:text-text-nav
-            "
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-
-              {/* Solutions */}
-              <div className="border-b border-black/10">
-
-                <button
-                  type="button"
-                  onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                  className="
-              flex
-              w-full
-              items-center
-              justify-between
-              py-5
-              text-base
-              font-medium
-              text-text-primary
-            "
-                >
-
-                  <span>Solutions</span>
-
-                  <ChevronDown
-                    size={22}
-                    strokeWidth={1.8}
-                    className={`
-                transition-transform
-                duration-300
-                ${isSolutionsOpen ? "rotate-180" : ""}
-              `}
-                  />
-
-                </button>
-
-
-                {/* Solutions Dropdown */}
-                <div
-                  className={`
-              grid
-              transition-[grid-template-rows]
-              duration-300
-              ease-in-out
-              ${isSolutionsOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}
-            `}
-                >
-                  <div className="overflow-hidden">
-
-                    <div className="mb-4 ml-2 flex flex-col border-l-2 border-text-primary/20 pl-5">
-
-                      <Link
-                        href="/products"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="
-                    py-3
-                    text-sm
-                    font-medium
-                    text-text-primary
-                    transition-colors
-                    hover:text-text-nav
-                  "
-                      >
-                        Products
-                      </Link>
-
-                      <Link
-                        href="/case-studies"
-                        onClick={() => setIsMenuOpen(false)}
-                        className="
-                    py-3
-                    text-sm
-                    font-medium
-                    text-text-primary
-                    transition-colors
-                    hover:text-text-nav
-                  "
-                      >
-                        Case Studies
-                      </Link>
-
-                    </div>
-
-                  </div>
-                </div>
-
-              </div>
-
-
-              {/* Remaining Links */}
-              {navLinks.slice(4).map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="
-              border-b
-              border-black/10
-              py-5
-              text-base
-              font-medium
-              text-text-primary
-              transition-colors
-              duration-200
-              hover:text-text-nav
-              last:border-b-0
-            "
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-
-              {/* Connect Button */}
-              <button
-                className="
-            mt-6
-            w-full
-            rounded-lg
-            bg-[var(--color-text-primary)]
-            px-6
-            py-3.5
-            text-sm
-            font-semibold
-            text-white
-            transition-all
+              <ChevronDown
+                size={22}
+                strokeWidth={1.8}
+                className={`
+            transition-transform
             duration-300
-            hover:-translate-y-0.5
-            hover:shadow-lg
-          "
-              >
-                Let's connect
-              </button>
+            ${isSolutionsOpen ? "rotate-180" : ""}
+          `}
+              />
+            </button>
 
-            </nav>
+            {/* Solutions Dropdown */}
+            <div
+              className={`
+          grid
+          transition-[grid-template-rows]
+          duration-300
+          ease-in-out
+          ${isSolutionsOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}
+        `}
+            >
+              <div className="overflow-hidden">
+                <div className="mb-4 ml-2 flex flex-col border-l-2 border-text-primary/20 pl-5">
 
+                  <Link
+                    href="/products"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="
+                py-3
+                text-sm
+                font-medium
+                text-text-primary
+                transition-colors
+                hover:text-text-nav
+              "
+                  >
+                    Products
+                  </Link>
+
+                  <Link
+                    href="/caseStudy"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="
+                py-3
+                text-sm
+                font-medium
+                text-text-primary
+                transition-colors
+                hover:text-text-nav
+              "
+                  >
+                    Case Studies
+                  </Link>
+
+                </div>
+              </div>
+            </div>
           </div>
-        </>
-      )}
+
+          {/* Remaining Links */}
+          {navLinks.slice(4).map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="
+          border-b
+          border-black/10
+          py-5
+          text-base
+          font-medium
+          text-text-primary
+          transition-colors
+          duration-200
+          hover:text-text-nav
+          last:border-b-0
+        "
+            >
+              {link.name}
+            </Link>
+          ))}
+
+          {/* Connect */}
+          <button
+            className="
+        mt-6
+        w-full
+        rounded-lg
+        bg-[var(--color-text-primary)]
+        px-6
+        py-3.5
+        text-sm
+        font-semibold
+        text-white
+        transition-all
+        duration-300
+        hover:-translate-y-0.5
+        hover:shadow-lg
+      "
+          >
+            Let's connect
+          </button>
+
+        </nav>
+      </div>
+
     </header>
   );
 }

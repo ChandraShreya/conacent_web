@@ -73,7 +73,7 @@ export default function AboutPreview() {
                   <div key={item.id}>
                     <Icon className='text-text-primary'/>
                     <h2 className='text-text-primary font-bold text-lg'>{item.title}</h2>
-                    <p className='text-text-primary font-bold font-banner text-md'>{item.description}</p>
+                    <p className='text-text-primary font-bold font-banner text-md capitalize'>{item.description}</p>
                   </div>
             
           )
