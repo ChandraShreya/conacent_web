@@ -58,6 +58,7 @@ export default function OurJourney() {
       {/* Main Container */}
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
 
+
         {/* ================= HEADER ================= */}
         <div className="mb-8 sm:mb-10">
 
@@ -216,7 +217,7 @@ export default function OurJourney() {
                     }
                   `}
                 >
-                  {/* Active card decorative glow */}
+                  {/* Active card  */}
                   {item.active && (
                     <>
                       <div

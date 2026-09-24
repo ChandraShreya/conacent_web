@@ -30,7 +30,7 @@ export default function LatestInsights() {
   ];
 
   return (
-    <section className="mb-15 w-full bg-background py-8">
+    <section className="mb-15 w-full bg-transparent py-8">
 
       {/* Main Container */}
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">

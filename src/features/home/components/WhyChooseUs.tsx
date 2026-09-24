@@ -6,7 +6,7 @@ import {
   RefreshCw,
   ShieldCheck,
 } from "lucide-react";
-import React from "react";
+
 
 export default function WhyChooseUs() {
   const whyChooseUs = [

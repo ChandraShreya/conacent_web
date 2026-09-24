@@ -11,7 +11,7 @@ const points = [
 
 export default function WhoWeAre() {
   return (
-    <section className="mb-12 w-full bg-background py-8 sm:mb-16 sm:py-10 lg:mb-20 lg:py-12">
+    <section className="w-full bg-background py-8 sm:py-10 lg:py-12">
       {/* Main Container */}
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
 

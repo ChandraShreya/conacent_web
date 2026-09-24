@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import {  Crimson_Text, Geist, Geist_Mono, Playfair, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
-import AboutPreview from "../features/home/components/AboutPreview";
 import Footer from "../components/layout/Footer";
+import InteractiveBackground from "../components/ui/InteractiveBg";
 // import Header from 
 
 const playfairDisplay = Playfair_Display({
@@ -28,11 +28,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${playfairDisplay.variable} ${crimsonText.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Header/>
-        {children}
-        <Footer/>
+      <body className="relative min-h-full flex flex-col">
+        <InteractiveBackground />
         
+         <div className="relative z-10">
+          <Header />
+
+          {children}
+
+          <Footer />
+        </div>
         
         </body>
     </html>

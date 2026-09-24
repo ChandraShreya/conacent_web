@@ -220,11 +220,11 @@ export default function Footer() {
           <div>
 
             <Image
-              src="/images/logo/logo.png"
+              src="/images/logo/logo_conacent.png"
               alt="Conacent"
               width={180}
               height={60}
-              className="h-auto w-40"
+              className="h-auto w-40 rounded-lg"
             />
 
             <p
@@ -431,7 +431,7 @@ export default function Footer() {
                 <MapPin className="mt-1 h-5 w-5 shrink-0 text-white" />
 
                 <p className="font-banner text-sm text-white/70 capitalize">
-                  Conacent Solutions
+                  Conacent Consulting pvt. ltd.
                   <br />
                   kolkata ,west bengal
                 </p>

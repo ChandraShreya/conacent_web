@@ -20,27 +20,37 @@ export default function Header() {
 
   return (
     <header className="w-full  bg-nav-background">
-      <div className="mx-auto flex h-16 max-w-full items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-full items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {/* Logo */}
         <div className="flex items-center">
           <Image
             src="/images/logo/logo.png"
-            alt="logo"
-            width={180}
-            height={180}
-            className="h-auto w-[200px] sm:w-[140px]"
+            alt="Conacent"
+            width={240}
+            height={80}
+            priority
+            className="h-auto w-[180px] sm:w-[200px] lg:w-[230px]"
           />
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-10 min-[990px]:flex min-sm:gap-4 min-lg:gap-6 min-xl:gap-10">
+        <nav className="hidden items-center gap-10 min-[990px]:flex min-sm:gap-4 min-lg:gap-6 min-xl:gap-12">
 
           {navLinks.slice(0, 4).map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-lg font-medium text-text-primary transition-all duration-200 hover:text-xl hover:font-bold hover:text-text-nav"
+              className="
+    inline-block
+    text-lg
+    font-medium
+    text-text-primary
+    transition-all
+    duration-200
+    hover:scale-110
+    hover:text-text-nav
+  "
             >
               {link.name}
             </Link>
@@ -54,7 +64,15 @@ export default function Header() {
           >
             <button
               type="button"
-              className="flex items-center gap-1 text-lg font-medium text-text-primary transition-all duration-200 hover:text-xl hover:font-bold hover:text-text-nav"
+              className="flex items-center gap-1 
+    text-lg
+    font-medium
+    text-text-primary
+    transition-all
+    duration-200
+    hover:scale-110
+    hover:text-text-nav
+  "
             >
               Solutions
               <ChevronDown
@@ -103,11 +121,14 @@ export default function Header() {
               key={link.name}
               href={link.href}
               className="
-  text-lg font-medium text-text-primary
-  transition-all duration-200
-  hover:text-xl
-  hover:font-bold
-  hover:text-text-nav
+    inline-block
+    text-lg
+    font-medium
+    text-text-primary
+    transition-all
+    duration-200
+    hover:scale-110
+    hover:text-text-nav
 "
             >
               {link.name}
@@ -206,8 +227,6 @@ export default function Header() {
       shrink-0
       items-center
       justify-between
-      border-b
-      border-black/10
       px-5
     "
         >

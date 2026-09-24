@@ -56,7 +56,7 @@ export const services = [
 
 export default function ServicePreview() {
   return (
-    <section className="w-full bg-background pb-20">
+    <section className="w-full bg-transparent pb-20">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -112,12 +112,12 @@ export default function ServicePreview() {
                   className="
                     pointer-events-none
                     absolute
-                    -right-20
-                    -top-20
+                    -right-10
+                    -top-15
                     h-48
                     w-48
                     rounded-full
-                    bg-blue-100/60
+                    bg-blue-100/100
                     opacity-0
                     transition-all
                     duration-700
@@ -131,12 +131,12 @@ export default function ServicePreview() {
                   className="
                     pointer-events-none
                     absolute
-                    -right-16
+                    -right-12
                     top-20
                     h-36
                     w-36
                     rounded-full
-                    bg-blue-50/80
+                    bg-blue-50/100
                     opacity-0
                     transition-all
                     duration-700

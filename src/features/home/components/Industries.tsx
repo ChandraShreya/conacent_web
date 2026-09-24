@@ -71,7 +71,7 @@ const industriesCard = [
 
 export default function Industries() {
   return (
-    <section className="w-full bg-background py-4 ">
+    <section className="w-full bg-transparent py-4 ">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}

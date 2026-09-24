@@ -35,7 +35,7 @@ export default function OurValues() {
   ];
 
   return (
-    <section className="mb-12 w-full bg-gray-50 py-8 sm:mb-16 sm:py-10 lg:mb-20 lg:py-12">
+    <section className="w-full bg-gray-50 py-8 sm:py-10 lg:py-12">
       
       {/* Container */}
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">

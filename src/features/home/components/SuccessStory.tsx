@@ -27,7 +27,7 @@ export default function SuccessStory() {
   ];
 
   return (
-    <section className="w-full bg-background py-8 sm:py-12 lg:py-16">
+    <section className="w-full bg-transparent py-8 sm:py-12 lg:py-16">
 
       {/* Main Container */}
       <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
